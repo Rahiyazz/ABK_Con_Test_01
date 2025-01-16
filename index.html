@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Area Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Work Area Calculator</h1>
+    <div class="calculator">
+        <div class="input-group">
+            <label for="workArea">Work Area:</label>
+            <input type="text" id="workArea" placeholder="Enter work area (e.g., Kitchen)">
+        </div>
+        <div class="input-group">
+            <label for="category">Work Category Description:</label>
+            <input type="text" id="category" placeholder="Enter category description">
+        </div>
+        <div class="input-group">
+            <label for="unit">Unit:</label>
+            <select id="unit">
+                <option value="">Select</option>
+                <option value="SFT">SFT</option>
+                <option value="RFT">RFT</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="nos">Qty/No.s:</label>
+            <input type="number" id="nos" placeholder="Enter Quantity/No.s">
+        </div>
+        <div class="radio-group">
+            <label><input type="radio" name="unit" value="Feet" checked> Feet</label>
+            <label><input type="radio" name="unit" value="Inch"> Inch</label>
+            <label><input type="radio" name="unit" value="Mtr"> Mtr</label>
+        </div>
+        <div class="input-group">
+            <label for="length">Length:</label>
+            <input type="text" id="length" placeholder="Enter Length (e.g., 24+2+3)">
+        </div>
+        <div class="input-group">
+            <label for="widthHeight">Width/Height:</label>
+            <input type="text" id="widthHeight" placeholder="Enter Width/Height (e.g., 10+2)">
+        </div>
+        <button class="btn-view" onclick="addWorkArea()">Add Work Area</button>
+        <button class="btn-summary" onclick="resetForm()">Reset</button>
+
+        <table id="workTable">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Work Area</th>
+                    <th>Work Category Description</th>
+                    <th>Unit</th>
+                    <th>Qty/No.s</th>
+                    <th>Length (Details)</th>
+                    <th>Width/Height (Details)</th>
+                    <th>Fixing SFT</th>
+                    <th>Fixing RFT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Work area data will appear here -->
+            </tbody>
+        </table>
+
+        <div class="export">
+            <button class="btn-view" onclick="viewData()">View Data</button>
+            <button class="btn-summary" onclick="exportSummary()">Summary</button>
+            <button class="btn-export" onclick="openExportPopup()">Export Data</button>
+        </div>
+    </div>
+
+    <!-- Export Popup -->
+    <div id="popup-background">
+        <div id="export-popup">
+            <h2>Export Data</h2>
+            <button class="popup-btn btn-pdf" onclick="exportToPDF()">To PDF</button>
+            <button class="popup-btn btn-excel" onclick="exportToExcel()">To Excel</button>
+            <button class="popup-btn btn-close" onclick="closeExportPopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
